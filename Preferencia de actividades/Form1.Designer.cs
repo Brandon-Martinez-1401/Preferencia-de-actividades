@@ -37,23 +37,24 @@
             chkMusica = new CheckBox();
             chkDeportes = new CheckBox();
             panel2 = new Panel();
-            radioButton1 = new RadioButton();
-            radioButton3 = new RadioButton();
-            radioButton2 = new RadioButton();
+            rbPrecencial = new RadioButton();
+            rbLinea = new RadioButton();
+            rbHibrida = new RadioButton();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            btnResumen = new Button();
+            btnLimpiar = new Button();
             label4 = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            textBox2 = new TextBox();
+            txtResumen = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // txtNombre
             // 
+            txtNombre.BackColor = SystemColors.ActiveCaption;
             txtNombre.Location = new Point(127, 18);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(220, 23);
@@ -124,47 +125,47 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(radioButton1);
-            panel2.Controls.Add(radioButton3);
-            panel2.Controls.Add(radioButton2);
+            panel2.Controls.Add(rbPrecencial);
+            panel2.Controls.Add(rbLinea);
+            panel2.Controls.Add(rbHibrida);
             panel2.Location = new Point(403, 70);
             panel2.Name = "panel2";
             panel2.Size = new Size(258, 179);
             panel2.TabIndex = 3;
             // 
-            // radioButton1
+            // rbPrecencial
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(17, 33);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(79, 19);
-            radioButton1.TabIndex = 4;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Precencial";
-            radioButton1.UseVisualStyleBackColor = true;
+            rbPrecencial.AutoSize = true;
+            rbPrecencial.Location = new Point(17, 33);
+            rbPrecencial.Name = "rbPrecencial";
+            rbPrecencial.Size = new Size(79, 19);
+            rbPrecencial.TabIndex = 4;
+            rbPrecencial.TabStop = true;
+            rbPrecencial.Text = "Precencial";
+            rbPrecencial.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbLinea
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(17, 129);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(66, 19);
-            radioButton3.TabIndex = 1;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "En linea";
-            radioButton3.UseVisualStyleBackColor = true;
-            radioButton3.CheckedChanged += radioButton3_CheckedChanged;
+            rbLinea.AutoSize = true;
+            rbLinea.Location = new Point(17, 129);
+            rbLinea.Name = "rbLinea";
+            rbLinea.Size = new Size(66, 19);
+            rbLinea.TabIndex = 1;
+            rbLinea.TabStop = true;
+            rbLinea.Text = "En linea";
+            rbLinea.UseVisualStyleBackColor = true;
+            rbLinea.CheckedChanged += radioButton3_CheckedChanged;
             // 
-            // radioButton2
+            // rbHibrida
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(17, 83);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(64, 19);
-            radioButton2.TabIndex = 0;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Hibrida";
-            radioButton2.UseVisualStyleBackColor = true;
+            rbHibrida.AutoSize = true;
+            rbHibrida.Location = new Point(17, 83);
+            rbHibrida.Name = "rbHibrida";
+            rbHibrida.Size = new Size(64, 19);
+            rbHibrida.TabIndex = 0;
+            rbHibrida.TabStop = true;
+            rbHibrida.Text = "Hibrida";
+            rbHibrida.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -194,24 +195,27 @@
             label3.Text = "Modalidad preferida(solo una opcion)";
             label3.Click += label3_Click;
             // 
-            // button1
+            // btnResumen
             // 
-            button1.Location = new Point(403, 313);
-            button1.Name = "button1";
-            button1.Size = new Size(131, 23);
-            button1.TabIndex = 7;
-            button1.Text = "Mostrar resumen";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnResumen.BackColor = SystemColors.Control;
+            btnResumen.Location = new Point(403, 313);
+            btnResumen.Name = "btnResumen";
+            btnResumen.Size = new Size(131, 23);
+            btnResumen.TabIndex = 7;
+            btnResumen.Text = "Mostrar resumen";
+            btnResumen.UseVisualStyleBackColor = false;
+            btnResumen.Click += button1_Click;
             // 
-            // button2
+            // btnLimpiar
             // 
-            button2.Location = new Point(586, 313);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 8;
-            button2.Text = "Limpiar";
-            button2.UseVisualStyleBackColor = true;
+            btnLimpiar.BackColor = SystemColors.Control;
+            btnLimpiar.Location = new Point(586, 313);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(75, 23);
+            btnLimpiar.TabIndex = 8;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // label4
             // 
@@ -227,24 +231,25 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
-            // textBox2
+            // txtResumen
             // 
-            textBox2.Location = new Point(61, 374);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(631, 167);
-            textBox2.TabIndex = 11;
+            txtResumen.BackColor = SystemColors.InactiveCaption;
+            txtResumen.Location = new Point(61, 374);
+            txtResumen.Multiline = true;
+            txtResumen.Name = "txtResumen";
+            txtResumen.Size = new Size(631, 167);
+            txtResumen.TabIndex = 11;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(752, 566);
-            Controls.Add(textBox2);
+            Controls.Add(txtResumen);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnLimpiar);
+            Controls.Add(btnResumen);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel2);
@@ -252,6 +257,7 @@
             Controls.Add(txtNombre);
             Name = "Form1";
             Text = "Preferncia de actividades";
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -269,16 +275,16 @@
         private CheckBox chkMusica;
         private CheckBox chkDeportes;
         private Panel panel2;
-        private RadioButton radioButton1;
-        private RadioButton radioButton3;
-        private RadioButton radioButton2;
+        private RadioButton rbPrecencial;
+        private RadioButton rbLinea;
+        private RadioButton rbHibrida;
         private Label label1;
         private Label label2;
         private Label label3;
-        private Button button1;
-        private Button button2;
+        private Button btnResumen;
+        private Button btnLimpiar;
         private Label label4;
         private ContextMenuStrip contextMenuStrip1;
-        private TextBox textBox2;
+        private TextBox txtResumen;
     }
 }

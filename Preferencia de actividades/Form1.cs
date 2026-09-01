@@ -42,7 +42,7 @@ namespace Preferencia_de_actividades
             //=========================================
 
             List<string> Actividades = new List<string>();
-            if(chkDeportes.Checked)
+            if (chkDeportes.Checked)
             {
                 Actividades.Add("Deportes");
             }
@@ -64,15 +64,75 @@ namespace Preferencia_de_actividades
             }
 
             //======================================
-            // 3.- compobar ue selcciono
+            // 3.- compobar tu seleccion
             //======================================
-            MessageBox.Show(
-                "por favor seleciona una atividd minimo.",
-                "validacion.",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
+            if (Actividades.Count == 0)
+            {
+                MessageBox.Show(
+                    "por favor seleciona una atividad minimo.",
+                    "validacion.",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                    );
+            }
+            //======================================
+            // 4.- OBTENER LA MODALIDAD
+            //======================================
+            string modaliad = "";
+            if (rbPrecencial.Checked)
+            {
+                modaliad = "Precencial";
+            }
+            else if (rbHibrida.Checked)
+            {
+                modaliad = "Hibrida";
+            }
+            else if (rbLinea.Checked)
+            {
+                modaliad = "En linea";
+            }
+            else
+            {
+                MessageBox.Show("Porfavor seleccione una modalidad",
+                    "validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            //======================================
+            // 4.- Crear el resumen
+            //======================================
+            string resumen =
+                "Resumen de preferencia\r\n" +
+                "-------------------------\r\n" +
+                "Nombre: " + txtNombre.Text + "\r\n" +
+                "Actividades: " + string.Join(",", Actividades) + "\r\n" +
+                "Modalidad" + modaliad;
+            txtResumen.Text = resumen;
 
 
+        }
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            //limpiarr nombre
+            txtNombre.Clear();//txtNombre="";
+                              //desmarcamos el chackBox
+            chkDeportes.Checked = false;
+            chkLectura.Checked = false;
+            chkArte.Checked = false;
+            chkMusica.Checked = false;
+            chkProgra.Checked = false;
+            //desmarcar RadioButton
+            rbLinea.Checked = false;
+            rbHibrida.Checked = false;
+            rbPrecencial.Checked = false;
+            //Limpiar Resumen
+            txtResumen.Clear();
+            //Regesamos el cursor al nombre
+            txtNombre.Focus();
         }
     }
 }
